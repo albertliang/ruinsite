@@ -1,0 +1,10 @@
+//kill user
+var gamerId = ObjectId("57c74a8535306803001b096f");
+
+db.gamers.update({'friends': gamerId}, { $pull: {'friends': gamerId}});
+db.orgs.update({'members': gamerId}, { $pull: {'members': gamerId}});
+db.orgs.update({'admins': gamerId}, { $pull: {'admins': gamerId}});
+db.rooms.update({'players.gamer': gamerId}, { $pull: {'players': {'gamer': gamerId}}});
+
+db.gamers.remove({_id: gamerId});
+db.users.remove({_id: gamerId});

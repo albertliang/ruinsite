@@ -1,0 +1,211 @@
+{
+	"version": "0.2.0",
+	"configurations": [
+		{
+			"name": "Attach by Process ID",
+			"processId": "${command:PickProcess}",
+			"request": "attach",
+			"skipFiles": [
+				"<node_internals>/**"
+			],
+			"type": "pwa-node"
+		},
+		{
+			"name": "Launch",
+			"type": "node",
+			"request": "launch",
+			"program": "${workspaceRoot}/src/server/server.ts",
+			"stopOnEntry": false,
+			"args": [],
+			"cwd": "${workspaceRoot}",
+			"runtimeExecutable": null,
+			"runtimeArgs": [
+				"--nolazy"
+			],
+			"env": {
+				"NODE_ENV": "development"
+			},
+			"console": "internalConsole",
+			"sourceMaps": true,
+			"outDir": "${workspaceRoot}/build/server/"
+		},
+		{
+            "name": "emaillist-setup",
+            "type": "node",
+			"request": "launch",
+            "program": "${workspaceRoot}/build/server/mailinglist/email-list.js",
+            "stopOnEntry": false,
+            "args": ["ScheduleAvailResponse"],
+            "cwd": "${workspaceRoot}",
+            "runtimeExecutable": null,
+			"runtimeArgs": [
+				"--nolazy"
+			],
+			"env": {
+				"NODE_ENV": "production"
+			},
+			"console": "internalConsole",
+			"sourceMaps": true,
+			"outDir": "${workspaceRoot}/build/server/"
+		},
+		{
+            "name": "emaillist-send",
+            "type": "node",
+			"request": "launch",
+            "program": "${workspaceRoot}/build/server/mailinglist/email-list.js",
+            "stopOnEntry": false,
+            "args": ["EmailAvailResponse"],
+            "cwd": "${workspaceRoot}",
+            "runtimeExecutable": null,
+			"runtimeArgs": [
+				"--nolazy"
+			],
+			"env": {
+				"NODE_ENV": "production"
+			},
+			"console": "internalConsole",
+			"sourceMaps": true,
+			"outDir": "${workspaceRoot}/build/server/"
+		},
+		// {
+        //     "name": "emaillist-send",
+        //     "type": "node",
+		// 	"request": "launch",
+        //     "program": "${workspaceRoot}/build/server/mailinglist/email-list.js",
+        //     "stopOnEntry": false,
+        //     "args": ["EmailAvailResponse", "1", "1"],
+        //     "cwd": "${workspaceRoot}",
+        //     "runtimeExecutable": null,
+		// 	"runtimeArgs": [
+		// 		"--nolazy"
+		// 	],
+		// 	"env": {
+		// 		"NODE_ENV": "production"
+		// 	},
+		// 	"externalConsole": false,
+		// 	"sourceMaps": true,
+		// 	"outDir": "${workspaceRoot}/build/server/"
+        // },
+		{
+            "name": "SyncIGDBGamesLibrary",
+            "type": "node",
+			"request": "launch",
+            "program": "${workspaceRoot}/build/server/scheduledjobs.js",
+            "stopOnEntry": false,
+            "args": ["SyncIGDBGamesLibrary"],
+            "cwd": "${workspaceRoot}",
+            "runtimeExecutable": null,
+			"runtimeArgs": [
+				"--nolazy"
+			],
+			"env": {
+				"NODE_ENV": "production"
+			},
+			"externalConsole": false,
+			"sourceMaps": true,
+			"outDir": "${workspaceRoot}/build/server/"
+		},
+		{
+            "name": "SyncIGDBSingleGame",
+            "type": "node",
+			"request": "launch",
+            "program": "${workspaceRoot}/build/server/scheduledjobs.js",
+            "stopOnEntry": false,
+            "args": ["SyncIGDBSingleGame", "Warhammer 40,000: Darktide"],
+            "cwd": "${workspaceRoot}",
+            "runtimeExecutable": null,
+			"runtimeArgs": [
+				"--nolazy"
+			],
+			"env": {
+				"NODE_ENV": "production"
+			},
+			"externalConsole": false,
+			"sourceMaps": true,
+			"outDir": "${workspaceRoot}/build/server/"
+		},
+		{
+            "name": "ScheduleAvailResponse",
+            "type": "node",
+			"request": "launch",
+            "program": "${workspaceRoot}/build/server/mailinglist/email-list.js",
+            "stopOnEntry": false,
+            "args": ["ScheduleAvailResponse"],
+            "cwd": "${workspaceRoot}",
+            "runtimeExecutable": null,
+			"runtimeArgs": [
+				"--nolazy"
+			],
+			"env": {
+				"NODE_ENV": "production"
+			},
+			"externalConsole": false,
+			"sourceMaps": true,
+			"outDir": "${workspaceRoot}/build/server/"
+		},
+		{
+            "name": "EmailAvailResponse",
+            "type": "node",
+			"request": "launch",
+            "program": "${workspaceRoot}/build/server/mailinglist/email-list.js",
+            "stopOnEntry": false,
+            "args": ["EmailAvailResponse"],
+            "cwd": "${workspaceRoot}",
+            "runtimeExecutable": null,
+			"runtimeArgs": [
+				"--nolazy"
+			],
+			"env": {
+				"NODE_ENV": "production"
+			},
+			"externalConsole": false,
+			"sourceMaps": true,
+			"outDir": "${workspaceRoot}/build/server/"
+		},
+        {
+            "name": "Run gulp-mocha tests",
+            "type": "node",
+			"request": "launch",
+            "program": "${workspaceRoot}/node_modules/gulp/bin/gulp.js",
+            "stopOnEntry": false,
+            "args": ["test"],
+            "cwd": "${workspaceRoot}",
+            "runtimeExecutable": null,
+			"runtimeArgs": [
+				"--nolazy"
+			],
+			"env": {
+				"NODE_ENV": "development"
+			},
+			"console": "internalConsole",
+			"sourceMaps": true,
+			"outDir": "${workspaceRoot}/build/server/"
+        },
+        {
+			"name": "Populate test users",
+			"type": "node",
+			"request": "launch",
+			"program": "${workspaceRoot}/build/server/junkdata/miniseed.js",
+			"stopOnEntry": false,
+			"args": [],
+			"cwd": "${workspaceRoot}",
+			"runtimeExecutable": null,
+			"runtimeArgs": [
+				"--nolazy"
+			],
+			"env": {
+				"NODE_ENV": "dev"
+			},
+			"console": "internalConsole",
+			"sourceMaps": true,
+			"outDir": "${workspaceRoot}/build/server/"
+		},
+		{
+			"name": "Attach",
+			"type": "node",
+			"request": "attach",
+            //"address": "localhost",
+			"port": 3000
+		}
+	]
+}

@@ -1,0 +1,41 @@
+restore to new mongo atlas
+WINNER!
+mongorestore --uri mongodb+srv://ruin-production:YdM03NjJxmJSFCOz@ruincluster.i4ptc.mongodb.net -d ruin-production --dir dump-dir/2020-11-07/heroku_x590f1w2
+
+cmd
+heroku login
+git push heroku master
+
+
+npm init
+
+npm install -g gulp typescript typings karma-cli bower mocha
+npm install --save glob path passport passport-jwt passport-local moment-timezone moment async angular mongodb mongoose express jade bluebird log4js lodash glob
+npm install --save-dev gulp typescript karma mocha chai karma-mocha karma-chai-plugins gulp-mocha sinon supertest
+
+typings install --ambient --save passport moment-timezone moment async bluebird gulp node express log4js mongoose lodash mocha chai sinon supertest
+typings install 
+//tsd query -r -o -a install async bluebird gulp angular bootstrap node express mongodb log4js mongoose lodash mocha chai sinon supertest
+//bluebird tsd not up to date, breaking
+
+tslint -i
+
+/*
+express - lightweight web framework for nodejs used to host your web application (http://expressjs.com)
+typescript - pseudo js language that's closer to object-oriented programming that "transpiles" into regular javascript (http://www.typescriptlang.org)
+gulp - task runner that I'm using for building and testing (http://gulpjs.com)
+mongo - database library for mongodb (http://mongodb.org)
+mongoose - mongo wrapper that allows the modeling of data schemas (http://www.mongoosejs.com)
+lodash - common utility functions (https://lodash.com/)
+glob - Match files using patterns 
+bluebird - promises library for async coding (http://bluebirdjs.com)
+moment - date parser lib (http://momentjs.com/)
+moment-timezone - timezone aware version of moment (http://momentjs.com/timezone/)
+
+karma - browser test runner (https://karma-runner.github.io/)
+mocha - test runner (http://mochajs.com)
+chai - test assertion library (http://chaijs.com)
+sinon - test stub/mocking library (http://sinonjs.org)
+supertest - Super-agent driven library for testing HTTP servers (https://github.com/visionmedia/supertest)
+
+*/

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+</head>
+<body>
+	<p><a href="{{roomLink}}"><img src="{{roomLinkImg}}" /></a></p>
+	<br><br>
+	<p>{{inviteFrom}} wants to invite you to a game of {{gameName}} at {{startTime}}. Click here to view/join the room:</p>
+	<br>
+	<a href="{{roomLink}}">{{roomLink}}</a>
+	<br><br>
+	{% if userMessage %}
+	<p>{{inviteFrom}} has also sent you the following message:</p>
+	<p>{{userMessage}}</p>
+	{% endif %}
+	<p>Thanks,</p>
+	<p>The {{appName}} Support Team</p>
+</body>
+</html>

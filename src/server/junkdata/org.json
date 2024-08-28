@@ -1,0 +1,26 @@
+[{
+    "name": "Damage Inc",
+    "description": "World of Warcraft Clan",
+    "url": ["http://www.di-rs.com/"],
+    "isOpen": true
+},{
+    "name": "Reckless Gaming Network",
+    "description": "we are a gaming community who a home for those of you who are looking for a mature and fun gaming community playing any PC Game available. We have a large group that plays Arma 3, ARK, Rocket league, CSGO and others. We host many different servers,and are looking for Mature gamers looking for a home",
+    "url": ["http://www.recklessnetwork.com/"],
+    "isOpen": true	
+},{
+    "name": "Fractured Gaming",
+    "description": "Fractured Gaming is a PC oriented multi gaming community. If you play PC games and want to find a good place to stay, come join Fractured Gaming. We've already made numerous friends from all walks of life and internationally and have overcome many hardships. We play any game under the sun with the 400+ registered users on our website. Some games we play: ARMA3, World Of Tanks, League Of Legends, Rust, Star Citizen, CS:GO, ARK, Warframe, Diablo 3, Minecraft",
+    "url": ["http://www.fractured-gaming.com"],
+    "isOpen": false
+},{
+    "name": "LnT gamers",
+    "description": "Hey guys, I'm FellLucifer from LnT gamers and we're just a chill bunch of dudes who just want to... play video games! We also play ranked in both CS:GO and Rainbow 6 so if you don't want to chill and play competitive, come head on over as well.",
+    "url": ["LNTgamers.com"],
+    "isOpen": true	
+},{
+    "name": "ANV",
+    "description": "Acta Non Verba is a friendly gaming clan looking for players. We play a wide variety of games from Rust to Arma. We use TeamSpeak 3 for our main source of communication. For any questions or concerns contact me on steam [TK]Piff The Magic Dragon or here on reddit.",
+    "url": [],
+    "isOpen": true
+}]

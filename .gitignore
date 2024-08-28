@@ -1,0 +1,10 @@
+/node_modules
+/typings
+/build
+/build/**/*.map
+/build/**/*.test.js
+/logs
+npm-debug.log
+debug.log
+.sln
+.njsproj

@@ -1,0 +1,97 @@
+//update t_thumb to iconSm
+db.games.find({iconSm:/t_thumb/}).forEach(function(e,i) {
+    e.iconSm=e.iconSm.replace("/t_thumb","/t_cover_small");
+    db.games.save(e);      
+});
+
+
+//migrate avails to availsArr
+db.gamers.find({}).forEach( 
+    function(gamer) {
+        var avails = gamer.avails;
+        var dayOfWeek = 0;
+        var availsArr = [];
+        gamer.avails.forEach( function(availDay) {
+            var keys = Object.keys(availDay);
+            keys.forEach( function(key) {
+                availsArr.push(parseInt(parseInt(key) + (dayOfWeek * 48)));
+            });
+            dayOfWeek = dayOfWeek + 1;
+        });
+        db.gamers.update({_id: gamer._id}, {$set: { availsArr: availsArr}});
+    }
+)
+
+//some gamers had nulls in their avails
+db.gamers.update( { avails: [null,null,null,null,null,null,null]},
+    { $set: { avails: [{},{},{},{},{},{},{}] } },      
+    false, // no need to upsert
+    true  // multi-update
+);
+
+//delete the old avail field (specific, generic)
+db.gamers.update( {},
+    { $unset: { avail: 1 } },      
+    false, // no need to upsert
+    true  // multi-update
+);
+
+//populate new avails from old format
+db.gamers.find({'avail.general': {$ne: []}}).forEach( 
+    function(gamer) {
+        var genAvails = gamer.avail.general;
+        var avails = gamer.avails;
+        var index = genAvails.length - 1;
+        var hasAvail = false;
+        while (index >= 0) {
+            var start = Math.floor(genAvails[index].startTimeInc15/2);
+            var incr = genAvails[index].duration / 30 - 1;
+            avails[genAvails[index].dayOfWeek][start.toString()] = true;
+            while (incr > 0) {
+                var timeInc = start + incr;
+                var dayOverflow = 0;
+                if (timeInc > 47) {
+                    timeInc -= 48;
+                    if (genAvails[index].dayOfWeek === 6) {
+                        dayOverflow = -6;
+                    } else {
+                        dayOverflow = 1;
+                    }
+                }
+                avails[genAvails[index].dayOfWeek + dayOverflow][(timeInc).toString()] = true;
+                hasAvail = true;
+                incr--;
+            }
+            index--;
+        }
+        printjson(avails);
+        db.gamers.update({_id: gamer._id}, {$set: { avails: avails, hasAvail: hasAvail }});
+    }
+)
+
+db.gamers.updateMany({}, { $set: {'avails': [{}, {}, {}, {}, {}, {}, {}]}})
+
+//reset startDay value to number (12/22/16)
+db.users.updateMany({}, { $set: {'settings.startDay': 16}})
+
+//populate prefgames if = 0, pop last 3 games (12/22/16)
+db.gamers.find({'$where': 'this.gamesPreferred.length < 1'}).forEach( 
+    function(gamer) {
+        var games = gamer.games;
+        var gamespref = games.slice(-3);
+        db.gamers.update({_id: gamer._id}, {$set: { gamesPreferred: gamespref }});
+    }
+)
+
+//set emailAvail defaults if it doesn't exist (12/22/16)
+db.users.updateMany({'settings.subscribedTo.emailAvail': null}, {
+    $set: {
+        'settings.subscribedTo.emailAvail': true,
+        'settings.subscribedTo.emailAvailHourUTC': 17
+    }})
+
+
+//kill all rooms
+db.orgs.updateMany({}, { $set: {'rooms':[]}});
+db.gamers.updateMany({}, { $set: {'rooms':[]}});
+db.rooms.delete({});

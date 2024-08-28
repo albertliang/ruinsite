@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+</head>
+<body>
+	<div style="background-color:#F0F0F0;font-family:Arial,Helvetica,sans-serif;margin:0;padding: 30px 0;width:100%">
+		<table style="width: 80%; max-width: 700px; margin:auto; border-radius: 30px; background-color: #fff; padding: 35px 25px">
+			<tbody>
+				<tr>
+					<td>
+						<br>While you were away:<br>
+						{{comments()}}
+					</td>
+				</tr>
+				<tr>
+					<td style="padding-top: 15px;font-size: 13px;">
+						Click here to view the group:<br>
+						<a style="color: #2ECBD0; text-decoration: none;" href="{{groupLink}}">{{groupLink}}</a>
+					</td>
+				</tr>
+				<tr>
+					<td style="padding-top: 15px;font-size: 13px;">
+						Thanks,<br>
+						The {{appName}} Support Team
+					</td>
+				</tr>
+				<tr>
+					<td style="padding-top: 35px;font-size: 12px; color: #ACACAC">You're receiving this email because you're a RUIn subscriber</td>
+				</tr>
+				<tr>
+					<td style="padding-top: 3px;font-size: 12px; color: #ACACAC">To unsubscribe from all game invites and comment updates, click
+						<a style="color: #2ECBD0; text-decoration: none;" href="{{domainapi}}/anon/unsubscribe/{{username}}/directInvites">here</a>
+						<br> Or you can change this and other email settings by clicking
+						<a style="color: #2ECBD0; text-decoration: none;" href="{{domain}}/#/profile">here</a>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</body>
+</html>

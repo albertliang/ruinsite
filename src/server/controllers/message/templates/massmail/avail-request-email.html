@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+</head>
+<body>
+	<div style="background-color:#F0F0F0;font-family:Arial,Helvetica,sans-serif;margin:0;padding: 30px 0;width:100%">
+		<form action="{{domain}}/anon/avail/{{token}}">	
+		<table style="width: 80%; max-width: 700px; margin:auto; border-radius: 30px; background-color: #fff; padding: 35px 25px">
+			<tbody>
+				<tr>
+					<td style="text-align: center; font-size: 24px;">RUIn - {{motd}}</td>
+				</tr>
+				<tr>
+					<td style="padding-top: 15px;font-size: 13px;"><b>When do you want to play today?</b><p></p></td>
+				</tr>
+				<tr>
+					<td>
+						<input style="font-size: 16px; background-color: #f8f8f8; border-color: #eeeeee; border-width: 1px; border-style: solid; padding-top: 3px; padding-bottom: 3px; padding-right: 10px; padding-left: 10px;" 
+							type="time" name="availTime" step="1800" value="{{availTime}}"> 
+					</td>
+				</tr>
+				<tr>
+					<td style="padding-top: 20px;font-size: 13px;"><b>For how long?</b><p></p></td>
+				</tr>
+				<tr>
+					<td style="font-size: 16px;"> 	
+						<input  type="radio" name="duration" value="60"><b style="margin-right: 18px; position: relative; bottom: 1px;"> 1 hour</b>
+						<input  type="radio" name="duration" value="120" checked="true"><b style="margin-right: 20px; position: relative; bottom: 1px;"> 2 hours</b>
+						<input  type="radio" name="duration" value="180"><b style="margin-right: 20px; position: relative; bottom: 1px;"> 3 hours</b>
+						<input  type="radio" name="duration" value="240"><b style="margin-right: 20px; position: relative; bottom: 1px;"> 4 hours</b>
+						<button style="cursor: pointer; display: block; color: #ffffff; background-color: #2ECBD0; border-color: #2ECBD0; border-width: 1px; border-style: solid; width: 120px;margin-top: 20px; padding: 9px; font-size: 12px; border-radius: 2px;" type="submit">Submit</button>			
+					</td>
+				</tr>
+				<tr>
+					<td style="padding-top: 40px;font-size: 13px;"><b>These are your Active Games. We'll try to match you with others who want to play these games.</b></td>
+				</tr>
+				<tr>
+					<td style="font-size: 13px; padding-top: 10px;"><b>	(You can manage your games <a style="color: #2ECBD0; text-decoration: none;" href="{{domain}}/#/dashboard/platforms">here</a>) </b></td>
+				</tr>
+				<tr>
+					<td>
+						<table style="margin-top: 15px;">
+							<tbody>
+								<tr>
+									<td>
+										{{games()}}
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</td>
+				</tr>
+
+				<tr>
+					<td style="padding-top: 35px;font-size: 12px; color: #ACACAC">You're receiving this email because you're a RUIn subscriber</td>
+				</tr>
+				<tr>
+					<td style="padding-top: 3px;font-size: 12px; color: #ACACAC">To unsubscribe from this email, click
+						<a style="color: #2ECBD0; text-decoration: none;" href="{{domainapi}}/anon/unsubscribe/{{username}}/emailAvail">here</a>
+						<br> or to change when you receive this email and other settings, click
+						<a style="color: #2ECBD0; text-decoration: none;" href="{{domain}}/#/profile">here.</a>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		</form>
+	</div>
+</body>
+</html>
