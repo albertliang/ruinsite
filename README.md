@@ -33,8 +33,8 @@ http://3t.io/mongochef/download/core/platform/
 
 ### GETTING THE SOURCE CODE ###
 Clone the bitbucket repos for:  
-RuinSite (server side code)  
-ruin-website (angular code)  
+ruinsite (server side code)  
+ruin-react (react code)  
 
 ### FIRST TIME PROJECT INSTALLATIONS ###
 Open up a command prompt and install these globally:  
@@ -52,21 +52,16 @@ Open up the RuinSite project and build it (Ctrl-Shift-B in VS Code)
     `gulp` (to launch)  
     (Ctrl-C to cancel)  
 
-For ruin-website, navigate to the project folder and type:  
-    `bower install`  
-    `grunt build`  
-    `grunt serve`  
-
 Now, if you're running on windows and want to just have a .bat file that runs all of this, 
 Create a .bat file and copy/paste this (change paths accordingly):
 
 start "db" cmd /c mongod -dbpath d:\ruin\development\database\data
 
-cd d:\ruin\development\RuinSite\
+cd d:\ruin\development\ruinsite\
 start "server" cmd /c gulp
 
-cd d:\ruin\development\ruin-website\
-start "web" cmd /c grunt serve
+cd d:\ruin\development\ruin-react\
+start "web" cmd /c npm start
 
 ### POPULATING GAME DATA ###
 To get game data into your local mongo db, run this from the proj folder after you've built the RuinSite project (this will take a few minutes)
@@ -84,7 +79,7 @@ This will create 10 test users with games, groups, friends, etc. It is re-runnab
 
 ### TYPICAL WORKFLOW ###
 After the initial set up, to get the servers up and running only require 3 commands (across 3 seperate terminals):  
-`bower install` -> `grunt build` -> `grunt serve`  
+`npm install` -> `npm run build` -> `npm start`  
 `npm install` -> `gulp build` -> `gulp`  
 `mongod`  
 
